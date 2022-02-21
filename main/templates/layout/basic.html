@@ -1,0 +1,43 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Главная{% endblock %} - Книга рецептов</title>
+        {% bootstrap_css %}
+        <link rel="stylesheet" type="text/css"
+        href="{% static 'main/style.css' %}">
+        {% bootstrap_javascript jquery='slim' %}
+    </head>
+    <body class="container-fluid">
+        <header class="mb-4">
+            <h1 class="display-1 text-center">Рецепты</h1>
+        </header>
+        <div class="row">
+            <nav class="col-md-auto nav flex-column border">
+                <a class="nav-link root"
+                href="{% url 'main:index' %}">Главная</a>
+                <link rel="stylesheet" type="text/css" href="{% static '/css/library/bootstrap.min.css' %}" />
+                <link rel="stylesheet" type="text/css" href="{% static '/css/library/select2.min.css' %}"/>
+                <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}"/>
+                <link rel="stylesheet" type="text/css" href="{% static '/css/main.select.css' %}"/>
+            </nav>
+            <section class="col border py-2">
+                {% bootstrap_messages %}
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
+            <script src="{% static "/js/library/jquery-3.5.0.min.js" %}"></script>
+            <script src="{% static "/js/library/bootstrap.min.js" %}"></script>
+        {% block extrajs %}
+            <script src="{% static "/js/library/select2.min.js" %}"></script>
+            <script src="{% static "/js/library/select2.ru.js" %}"></script>
+            <script src="{% static "/js/main.select.js" %}"></script>
+        {% endblock %}
+    </body>
+
+</html>
